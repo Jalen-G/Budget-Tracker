@@ -163,7 +163,7 @@
             this.totalAmountLabel.Name = "totalAmountLabel";
             this.totalAmountLabel.Size = new System.Drawing.Size(107, 16);
             this.totalAmountLabel.TabIndex = 11;
-            this.totalAmountLabel.Text = "Total Amount: ";
+            this.totalAmountLabel.Text = "Net Amount: ";
             // 
             // txtTotalAmount
             // 
