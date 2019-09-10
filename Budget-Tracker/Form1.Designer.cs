@@ -38,6 +38,9 @@
             this.expenseButton = new System.Windows.Forms.Button();
             this.incomeButton = new System.Windows.Forms.Button();
             this.listBox = new System.Windows.Forms.DataGridView();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.totalAmountLabel = new System.Windows.Forms.Label();
+            this.txtTotalAmount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +48,7 @@
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(93, 107);
+            this.nameLabel.Location = new System.Drawing.Point(98, 95);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(125, 25);
             this.nameLabel.TabIndex = 0;
@@ -53,14 +56,14 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(70, 135);
+            this.txtName.Location = new System.Drawing.Point(64, 123);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(184, 20);
             this.txtName.TabIndex = 1;
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(70, 186);
+            this.txtAmount.Location = new System.Drawing.Point(64, 174);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(184, 20);
             this.txtAmount.TabIndex = 3;
@@ -69,7 +72,7 @@
             // 
             this.amountLabel.AutoSize = true;
             this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountLabel.Location = new System.Drawing.Point(93, 158);
+            this.amountLabel.Location = new System.Drawing.Point(87, 146);
             this.amountLabel.Name = "amountLabel";
             this.amountLabel.Size = new System.Drawing.Size(142, 25);
             this.amountLabel.TabIndex = 2;
@@ -79,7 +82,7 @@
             // 
             this.dateLabel.AutoSize = true;
             this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.Location = new System.Drawing.Point(93, 209);
+            this.dateLabel.Location = new System.Drawing.Point(98, 197);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(114, 25);
             this.dateLabel.TabIndex = 4;
@@ -87,15 +90,15 @@
             // 
             // datePicker
             // 
-            this.datePicker.Location = new System.Drawing.Point(70, 237);
+            this.datePicker.Location = new System.Drawing.Point(64, 225);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(184, 20);
             this.datePicker.TabIndex = 5;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,7 +110,7 @@
             // 
             // expenseButton
             // 
-            this.expenseButton.Location = new System.Drawing.Point(70, 263);
+            this.expenseButton.Location = new System.Drawing.Point(64, 251);
             this.expenseButton.Name = "expenseButton";
             this.expenseButton.Size = new System.Drawing.Size(75, 23);
             this.expenseButton.TabIndex = 7;
@@ -117,12 +120,13 @@
             // 
             // incomeButton
             // 
-            this.incomeButton.Location = new System.Drawing.Point(179, 263);
+            this.incomeButton.Location = new System.Drawing.Point(173, 251);
             this.incomeButton.Name = "incomeButton";
             this.incomeButton.Size = new System.Drawing.Size(75, 23);
             this.incomeButton.TabIndex = 8;
             this.incomeButton.Text = "Income";
             this.incomeButton.UseVisualStyleBackColor = true;
+            this.incomeButton.Click += new System.EventHandler(this.incomeButton_Click);
             // 
             // listBox
             // 
@@ -139,12 +143,46 @@
             this.listBox.ReadOnly = true;
             this.listBox.Size = new System.Drawing.Size(330, 272);
             this.listBox.TabIndex = 9;
+            this.listBox.Click += new System.EventHandler(this.listBox_Click);
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(118, 280);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.TabIndex = 10;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // totalAmountLabel
+            // 
+            this.totalAmountLabel.AutoSize = true;
+            this.totalAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalAmountLabel.Location = new System.Drawing.Point(64, 308);
+            this.totalAmountLabel.Name = "totalAmountLabel";
+            this.totalAmountLabel.Size = new System.Drawing.Size(107, 16);
+            this.totalAmountLabel.TabIndex = 11;
+            this.totalAmountLabel.Text = "Total Amount: ";
+            // 
+            // txtTotalAmount
+            // 
+            this.txtTotalAmount.AutoSize = true;
+            this.txtTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalAmount.Location = new System.Drawing.Point(170, 308);
+            this.txtTotalAmount.Name = "txtTotalAmount";
+            this.txtTotalAmount.Size = new System.Drawing.Size(34, 16);
+            this.txtTotalAmount.TabIndex = 12;
+            this.txtTotalAmount.Text = "N/A";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 361);
+            this.Controls.Add(this.txtTotalAmount);
+            this.Controls.Add(this.totalAmountLabel);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.incomeButton);
             this.Controls.Add(this.expenseButton);
@@ -177,6 +215,9 @@
         private System.Windows.Forms.Button expenseButton;
         private System.Windows.Forms.Button incomeButton;
         private System.Windows.Forms.DataGridView listBox;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Label totalAmountLabel;
+        private System.Windows.Forms.Label txtTotalAmount;
     }
 }
 

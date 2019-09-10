@@ -33,5 +33,20 @@ namespace Budget_Tracker
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
+
+        public static void editExpenses(expenseModel expense, int expenseID)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(loadConnectionString()))
+            {
+                cnn.Execute("update expenseTable set Name = @Name, Amount = @Amount, Date = @Date where expenseID = " + expenseID, expense);
+            }
+        }
+        public static void deleteExpenses(int expenseID)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(loadConnectionString()))
+            {
+                cnn.Execute("delete from expenseTable where expenseID = " + expenseID);
+            }
+        }
     }
 }
